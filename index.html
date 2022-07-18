@@ -11,11 +11,42 @@
     <title>Pokemon</title>
   </head>
   <body>
+    <!-- SEARCH BAR -->
+    <div class="search-bar-container">
+      <label class="label" for="search">Enter a Pokemon name or number</label>
+      <div class="input-container">
+        <input
+          class="input"
+          type="search"
+          id="search"
+          placeholder="ex) charmander or 4"
+        />
+        <button class="search-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="search-icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- POKEMON CARD -->
     <div class="card">
       <img class="pokemon-sprite" src="" />
-      <span class="pokemon-name"></span>
+      <div class="name-container">
+        <span class="pokemon-number"></span> <span class="pokemon-name"></span>
+      </div>
+      <div class="type-container"><span class="pokemon-type"></span></div>
     </div>
-    <footer>
+    <!-- <footer>
       <a
         class="page-icon-creds"
         target="_blank"
@@ -23,6 +54,6 @@
         >Pokeball</a
       >
       page icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-    </footer>
+    </footer> -->
   </body>
 </html>
