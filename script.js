@@ -22,39 +22,8 @@ const capitalFirstLetter = function (string) {
 };
 
 ///////////////////////////////////////////////////////////////////////////
-// Preload Pokemon Data
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// SEARCH BAR
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
 // RENDER POKEMON
 ///////////////////////////////////////////////////////////////////////////
-const createCard = ({
-  pokeSprite: sprite,
-  pokeNum: number,
-  pokeName: name,
-  pokeType: type,
-}) => {
-  const card = document.createElement("div");
-  const img = document.createElement("img");
-  const nameContainer = document.createElement("div");
-  const pokeNumber = document.createElement("span");
-  const pokeName = document.createElement("span");
-  const typeContainer = document.createElement("div");
-  const pokeType = document.createElement("span");
-
-  card.classList.add("card");
-  img.classList.add(`pokemon-sprite, ${sprite}`);
-  nameContainer.classList.add("name-container");
-  pokeNumber.classList.add("pokemon-number");
-  pokeName.classList.add("pokemon-name");
-  typeContainer.classList.add("type-container");
-  pokeType.classList.add("pokemon-type");
-};
-
 const getPokemon = async function (pokemon) {
   const pokemonJson = await getJson(
     `https://pokeapi.co/api/v2/pokemon/${pokemon}/`
@@ -97,21 +66,16 @@ const getPokemon = async function (pokemon) {
     if (type.innerText == "Steel") type.style.backgroundColor = "#B7B7CE";
     if (type.innerText == "Fairy") type.style.backgroundColor = "#D685AD ";
   });
-
-  //Evolutions
-  const speciesJson = await getJson(pokemonJson.species.url);
-  console.log(speciesJson);
-
-  const evolutionChainJson = await getJson(speciesJson.evolution_chain.url);
-  console.log(evolutionChainJson);
-
-  const evolutionNextName = evolutionChainJson.chain.evolves_to[0].species.name;
-  console.log(evolutionNextName);
-
-  const evolutionNextJson = await getJson(
-    `https://pokeapi.co/api/v2/pokemon/${evolutionNextName}/`
-  );
-  console.log(evolutionNextJson);
 };
+
+///////////////////////////////////////////////////////////////////////////
+// SEARCH BAR
+///////////////////////////////////////////////////////////////////////////
+const search = document.querySelector("#searchInput");
+const searchBtn = document.querySelector(".search-btn");
+
+searchBtn.addEventListener("click", () => {
+  console.log(search);
+});
 
 getPokemon(1);
