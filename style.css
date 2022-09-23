@@ -29,6 +29,10 @@ html {
   font-size: 62.5%;
 }
 
+footer {
+  margin: 2rem;
+}
+
 .search-bar-container {
   display: flex;
   flex-direction: column;
@@ -104,10 +108,6 @@ html {
 .pokemon-type {
   padding: 0.5rem 2rem;
   border-radius: 50px;
-}
-
-footer {
-  margin-left: 2rem;
 }
 
 .hidden {
