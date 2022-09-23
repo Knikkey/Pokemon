@@ -5,10 +5,13 @@
 ///////////////////////////////////////////////////////////////////////////
 // GENERAL STUFF
 ///////////////////////////////////////////////////////////////////////////
+const card = document.querySelector(".card");
 const pokemonSprite = document.querySelector(".pokemon-sprite");
 const pokemonName = document.querySelector(".pokemon-name");
 const pokemonNumber = document.querySelector(".pokemon-number");
 const pokemonType = document.querySelector(".pokemon-type");
+const type2 = document.querySelector(".type-2");
+const pokemonTypes = document.querySelectorAll(".pokemon-type");
 const input = document.querySelector(".input");
 
 const getJson = async function (url) {
@@ -30,7 +33,8 @@ const getPokemon = async function (pokemon) {
       `https://pokeapi.co/api/v2/pokemon/${pokemon}/`
     );
 
-    console.log(pokemonJson);
+    if (pokemonJson) card.classList.remove("hidden");
+
     pokemonSprite.src = pokemonJson.sprites.other.dream_world.front_default;
     if (!pokemonJson.sprites.other.dream_world.front_default) {
       pokemonSprite.src = pokemonJson.sprites.front_default;
@@ -42,14 +46,11 @@ const getPokemon = async function (pokemon) {
 
     //Types
     pokemonType.innerText = capitalFirstLetter(pokemonJson.types[0].type.name);
+    if (pokemonJson.types.length === 1) type2.classList.add("hidden");
     if (pokemonJson.types.length > 1) {
-      const type2 = document.createElement("span");
-      type2.classList.add("pokemon-type", "type-2");
+      type2.classList.remove("hidden");
       type2.innerText = capitalFirstLetter(pokemonJson.types[1].type.name);
-      pokemonType.insertAdjacentElement("afterend", type2);
     }
-
-    const pokemonTypes = document.querySelectorAll(".pokemon-type");
 
     pokemonTypes.forEach((type) => {
       if (type.innerText == "Normal") type.style.backgroundColor = "#A8A77A";

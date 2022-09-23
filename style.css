@@ -109,3 +109,7 @@ html {
 footer {
   margin-left: 2rem;
 }
+
+.hidden {
+  display: none;
+}
