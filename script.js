@@ -100,5 +100,3 @@ search.addEventListener("keyup", (e) => {
 searchBtn.addEventListener("click", () => {
   getPokemon(searchInput);
 });
-
-//getPokemon(1);
