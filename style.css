@@ -113,3 +113,9 @@ footer {
 .hidden {
   display: none;
 }
+
+@media (max-width: 1150px) {
+  .input-container {
+    width: 100%;
+  }
+}
